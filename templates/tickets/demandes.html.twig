@@ -1,0 +1,43 @@
+{% extends 'base.html.twig'%}
+
+{% block title %} Enregistrement {% endblock %}
+
+{% block body %}
+<div class="container-fluide">
+	<div class="jumbotron jumbotron-fluid bg-dark bg-nouveau" style="color:white;font-size: 30px;">
+	  <div class="container">
+	    <p class="lead">L’ergonomie, l’expérience utilisateur, <strong><span class="bg-primary"> la navigation au doigt, les contenus, la conversion </span></strong>, voilà autant de notions que nous prenons en compte lors d’un processus de création de site internet.</p>
+	  </div>
+	</div>
+</div>
+
+<br>
+	<h1 class="container">
+		{% if demandeEdit %}
+			Modifier mon annonce
+		{% else %}
+			Création d'une annonce
+		{% endif %}
+	</h1>
+
+	{{ form_start(formDemande) }}
+	<div class="container form-group">
+		{{ form_row(formDemande.nom)}}
+		{{ form_row(formDemande.prenom)}}
+		{{ form_row(formDemande.email)}}
+		{{ form_row(formDemande.adresse)}}
+		{{ form_row(formDemande.telephone)}}
+		<hr>
+		{{ form_row(formDemande.titre, {'label': "Titre d'accroche"})}}
+		{{ form_row(formDemande.contenu, {'label':"Votre message"})}}
+		{{ form_row(formDemande.image, {'label':"logo de l'entreprise:"})}}<br>
+		<button type="submit" class="btn btn-success">
+		{% if demandeEdit %}
+			Enregistrer les modifications
+		{% else %}
+			Soumettre ma demande
+		{% endif %}
+		</button>
+	</div>
+	{{ form_end(formDemande) }}
+{% endblock %}

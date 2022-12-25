@@ -1,0 +1,4 @@
+swiftmailer:
+    transport: gmail
+    username:  wbelbeche.s@gmail.com
+    password:  elyana24

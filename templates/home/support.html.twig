@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demandes en cours{% endblock %}
+
+{% block body %}
+
+
+<div class="jumbotron">
+  <h1 class="display-3">Vous avez déjà un projet sous la réference n°</h1>
+  <p class="lead">Pas de panique Nversios s'occupe de vous, veuillez suivre les étapes en suivant ce lien.</p>
+  <p class="lead">
+    
+  </p>
+  <hr class="my-4">
+</div>
+
+<div class="container">
+	<div class="row">
+		{% for ticket in tickets %}
+			<div class="col-md-4">
+				<div class="card border-dark mb-3">
+				  <div class="card-header">{{ ticket.titre }}</div>
+				  <div class="card-body">
+				    <h4 class="card-title" style="">Status: en cours</h4>
+				    <article>
+						<h2> </h2>
+						<div class="metadata">Ecrit le {{ ticket.createdAt| date('d/m/Y')  }} à {{ ticket.createdAt| date('H:i') }}</div>
+						<img src="{{ ticket.image}}" alt="">
+						{{ ticket.contenu | raw}}<br>
+						<a href="{{ path('tickets_show', {'id': ticket.id}) }}" class="btn btn-warning">Voir le projet</a>
+					</article>
+				  </div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

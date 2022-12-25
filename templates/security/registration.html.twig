@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création du compte{% endblock %}
+{% block body %}
+	<div class="jumbotron jumbotron-fluid">
+		  <div class="container-fluide">
+		    <h1 class="display-4">Encore quelques étapes et vous serez prêt</h1>
+		    <p class="lead">Durant tout le long de votre projet, vous serez guilder, afin de mettre en place votre nouvelle solution digital.</p>
+		  </div>
+		</div>
+	<div class="container">
+		{{ form_start(formInscription) }}
+		{{ form_widget(formInscription) }}<br>
+		<a href="{{ path('security_inscription') }}"><button type="submit" class="btn btn-success">Suivant</button></a>
+		{{ form_end(formInscription) }}
+	</div>
+{% endblock %}

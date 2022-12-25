@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta name="author" content="belbeche walid" />
+    	<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+    	<meta name="keywords" content="création site web auxerre" />
+		<meta name="description" content="pas cher , symfony , sur mesures" />
+        <meta charset="UTF-8">
+        <script>document.getElementsByTagName("html")[0].className += " js";</script>
+        <title>{% block title %}Site web sur mesure{% endblock %}</title>
+        {% block stylesheets %}
+        	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta24/shoelace.css">
+			<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="http://nversios.com/old/box.css">
+			<link rel="stylesheet" type="text/css" href="http://nversios.com/old/landing-page.css">
+			<link rel="stylesheet" type="text/css" href="http://nversios.com/old/style.css">
+			<link rel="stylesheet" type="text/css" href="http://nversios.com/old/app.css">
+			<link rel='stylesheet' href='https://unpkg.com/ionicons@4.4.8/dist/css/ionicons.min.css'>
+			<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:700'>
+			<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+        {% endblock %}
+        {% block javascripts %}
+        	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        	<script src="https://kit.fontawesome.com/1475ebeb51.js"></script>
+        	<script src="https://cdn.shoelace.style/1.0.0-beta24/shoelace.js"></script>
+        {% endblock %}
+        <header class="cd-main-header js-cd-main-header">
+		    <div class="cd-logo-wrapper">
+		      <img src="logo-owner.png" alt="Création site web auxerre" class="logo-top" style="display:none;">
+		      <a href="{{ path('home') }}" class="navbar-brand " style="color:white;">Nversios</a>
+		    </div>
+		    <div class="s-layout">
+			<!-- Sidebar -->
+			<div class="s-layout__sidebar">
+			  	<a class="s-sidebar__trigger" style="background-color:  #2b3035;">
+			     <i class="fa fa-bars"> Nversios</i>
+			  	</a>
+			  <nav class="s-sidebar__nav" style="background-color: #2b3035;">
+			     <ul>
+			        <li>
+			           <a class="s-sidebar__nav-link" href="{{ path('home')}}">
+			              <i class="fa fa-home"></i><em>Accueil</em>
+			           </a>
+			        </li>
+			        <li>
+			           <a class="s-sidebar__nav-link" href="{{ path('users_membre') }}">
+			             <i class="fa fa-user"></i><em>Mon compte</em>
+			           </a>
+			        </li>
+			     </ul>
+			  </nav>
+			</div>
+			</div>
+		    {% if not app.user %}
+		    	<ul class="cd-nav__list js-cd-nav__list">
+			      <li class="cd-nav__item cd-nav__item--has-children cd-nav__item--account js-cd-item--has-children">
+			        <a href="{{ path('users_membre')}}">
+			          <i class="fas fa-user-tie"></i>
+			          <span>Espace membre</span>
+			        </a>
+			    
+			        <ul class="cd-nav__sub-list">
+			          <li class="cd-nav__sub-item"><a href="{{ path('security_inscription')}}">Première connexion</a></li>
+			          <li class="cd-nav__sub-item"><a href="{{ path('security_connexion')}}">déjà membre</a></li>
+			        </ul>
+			      </li>
+			    </ul>
+			{% else %}
+				<ul class="cd-nav__list js-cd-nav__list">
+			      <li class="cd-nav__item cd-nav__item--has-children cd-nav__item--account js-cd-item--has-children">
+			        <a href="/modifications_demande">
+			          	<i class="fas fa-life-ring"> </i>		          
+			          	<span> Assistance</span>
+			        </a>
+			        <ul class="cd-nav__sub-list">
+			          <li class="cd-nav__sub-item"><a href="{{ path('support')}}">Suivis d'une commande</a></li>
+			          <li class="cd-nav__sub-item"><a href="">Crée un tickets</a></li>
+			        </ul>
+			      </li>
+			    </ul>
+			    <li class="">
+			    	<a href="{{ path('security_logout')}}" style="color:white;">
+			        	<i class="fas fa-user-clock cd-nav__item cd-nav__item--has-children cd-nav__item--account js-cd-item--has-children"> Déconnexion</i>
+			    	</a>
+			    </li>
+			{% endif %}
+	    </header> <!-- .cd-main-header -->
+		<main class="cd-main-content">
+		    <nav class="cd-side-nav js-cd-side-nav">
+		        <ul class="cd-side__list js-cd-side__list">
+			        <li class="cd-side__label"><span>Informations</span></li>
+			        <li class="cd-side__item cd-side__item--has-children cd-side__item--overview js-cd-item--has-children">
+			          <a href="{{ path('home') }}">Accueil</a>
+			          
+			          <ul class="cd-side__sub-list">
+			            <li class="cd-side__sub-item"><a href="#0">All Data</a></li>
+			            <li class="cd-side__sub-item"><a href="#0">Category 1</a></li>
+			            <li class="cd-side__sub-item"><a href="#0">Category 2</a></li>
+			          </ul>
+			        </li>
+
+			        <li class="cd-side__item cd-side__item--has-children cd-side__item--notifications cd-side__item--selected js-cd-item--has-children">
+			          <a href="#0">A propos<span class="cd-count">3</span></a>
+			          
+			          <ul class="cd-side__sub-list">
+			            <li class="cd-side__sub-item"><a aria-current="page" href="#0">Histoire</a></li>
+			            <li class="cd-side__sub-item"><a href="#0">Competences</a></li>
+			            <li class="cd-side__sub-item"><a href="#0">Projets</a></li>
+			          </ul>
+			        </li>
+		        </ul>
+		      
+		    
+		      <ul class="cd-side__list js-cd-side__list">
+		        <li class="cd-side__label"><span>Souscription en ligne</span></li>
+		        <li class="cd-side__btn"><button class="reset" href="#0">Devis</button></li>
+		      </ul>
+		    </nav>
+    </head>
+    <body>
+		<div >
+	      <div>
+	        {% block body %} 
+	        	
+	        {% endblock %}
+	      </div>
+    	</div>
+    </body>
+    <script type="text/javascript">
+
+		particlesJS("particles-js", {
+		  "particles": {
+		    "number": {
+		      "value": 80,
+		      "density": {
+		        "enable": true,
+		        "value_area": 800
+		      }
+		    },
+		    "color": {
+		      "value": "#ffffff"
+		    },
+		    "shape": {
+		      "type": "circle",
+		      "stroke": {
+		        "width": 0,
+		        "color": "#000000"
+		      },
+		      "polygon": {
+		        "nb_sides": 5
+		      },
+		      "image": {
+		        "src": "img/github.svg",
+		        "width": 100,
+		        "height": 100
+		      }
+		    },
+		    "opacity": {
+		      "value": 0.5,
+		      "random": false,
+		      "anim": {
+		        "enable": false,
+		        "speed": 1,
+		        "opacity_min": 0.1,
+		        "sync": false
+		      }
+		    },
+		    "size": {
+		      "value": 20,
+		      "random": true,
+		      "anim": {
+		        "enable": false,
+		        "speed": 40,
+		        "size_min": 0.1,
+		        "sync": false
+		      }
+		    },
+		    "line_linked": {
+		      "enable": true,
+		      "distance": 150,
+		      "color": "#ffffff",
+		      "opacity": 0.22,
+		      "width": 1
+		    },
+		    "move": {
+		      "enable": true,
+		      "speed": 6,
+		      "direction": "none",
+		      "random": false,
+		      "straight": false,
+		      "out_mode": "out",
+		      "attract": {
+		        "enable": false,
+		        "rotateX": 600,
+		        "rotateY": 1200
+		      }
+		    }
+		  },
+		  "interactivity": {
+		    "detect_on": "canvas",
+		    "events": {
+		      "onhover": {
+		        "enable": true,
+		        "mode": "repulse"
+		      },
+		      "onclick": {
+		        "enable": true,
+		        "mode": "push"
+		      },
+		      "resize": true
+		    },
+		    "modes": {
+		      "grab": {
+		        "distance": 400,
+		        "line_linked": {
+		          "opacity": 1
+		        }
+		      },
+		      "bubble": {
+		        "distance": 400,
+		        "size": 40,
+		        "duration": 2,
+		        "opacity": 8,
+		        "speed": 3
+		      },
+		      "repulse": {
+		        "distance": 200
+		      },
+		      "push": {
+		        "particles_nb": 4
+		      },
+		      "remove": {
+		        "particles_nb": 2
+		      }
+		    }
+		  },
+		  "retina_detect": true,
+		  "config_demo": {
+		    "hide_card": false,
+		    "background_color": "#b61924",
+		    "background_image": "",
+		    "background_position": "50% 50%",
+		    "background_repeat": "no-repeat",
+		    "background_size": "cover"
+		  }
+		});
+    </script>
+    <script src="http://walidbelbeche.000webhostapp.com/js/util.js"></script>
+	<script src="http://walidbelbeche.000webhostapp.com/js/menu-aim.js"></script>
+	<script src="http://walidbelbeche.000webhostapp.com/js/main.js"></script>
+</html>
